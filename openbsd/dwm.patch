@@ -1,0 +1,55 @@
+Index: patches/patch-config_def_h
+===================================================================
+RCS file: /cvsync/ports/x11/dwm/patches/patch-config_def_h,v
+retrieving revision 1.9
+diff -u -p -r1.9 patch-config_def_h
+--- patches/patch-config_def_h	9 Jul 2012 16:33:40 -0000	1.9
++++ patches/patch-config_def_h	18 Jul 2015 19:32:24 -0000
+@@ -1,7 +1,6 @@
+-$OpenBSD: patch-config_def_h,v 1.9 2012/07/09 16:33:40 zinke Exp $
+---- config.def.h.orig	Mon Dec 19 16:02:46 2011
+-+++ config.def.h	Sat Jul  7 22:28:18 2012
+-@@ -1,13 +1,13 @@
++--- config.def.h.orig	Mon Dec 19 08:02:46 2011
+++++ config.def.h	Sat Jul 18 13:31:15 2015
++@@ -1,14 +1,14 @@
+  /* See LICENSE file for copyright and license details. */
+  
+  /* appearance */
+@@ -12,6 +11,7 @@ $OpenBSD: patch-config_def_h,v 1.9 2012/
+ -static const char selbordercolor[]  = "#005577";
+ -static const char selbgcolor[]      = "#005577";
+ -static const char selfgcolor[]      = "#eeeeee";
++-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+ +static const char font[]            = "-*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*";
+ +static const char normbordercolor[] = "#404040";
+ +static const char normbgcolor[]     = "#202020";
+@@ -19,10 +19,11 @@ $OpenBSD: patch-config_def_h,v 1.9 2012/
+ +static const char selbordercolor[]  = "#8888ff";
+ +static const char selbgcolor[]      = "#404040";
+ +static const char selfgcolor[]      = "#f0f0f0";
+- static const unsigned int borderpx  = 1;        /* border pixel of windows */
+++static const unsigned int borderpx  = 4;        /* border pixel of windows */
+  static const unsigned int snap      = 32;       /* snap pixel */
+  static const Bool showbar           = True;     /* False means no bar */
+-@@ -20,6 +20,8 @@ static const Rule rules[] = {
++ static const Bool topbar            = True;     /* False means bottom bar */
++@@ -20,6 +20,8 @@
+  	/* class      instance    title       tags mask     isfloating   monitor */
+  	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
+  	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+@@ -31,12 +32,12 @@ $OpenBSD: patch-config_def_h,v 1.9 2012/
+  };
+  
+  /* layout(s) */
+-@@ -47,7 +49,7 @@ static const Layout layouts[] = {
++@@ -47,7 +49,7 @@
+  
+  /* commands */
+  static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+ -static const char *termcmd[]  = { "uxterm", NULL };
+-+static const char *termcmd[]  = { "xterm", NULL };
+++static const char *termcmd[]  = { "xterm", "-en", "UTF-8", NULL };
+  
+  static Key keys[] = {
+  	/* modifier                     key        function        argument */
